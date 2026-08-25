@@ -1,45 +1,25 @@
 "use client";
-import "../../style.css";
+import "../style.css";
 
-export default function RestockItem() {
-        const itemInfo = ["PAR-M10-30", "PAR-M8-25"]; //puxar do banco dps
+export default function RegisterItem() {
         const itemCategory = ["fixadores", "lubrificantes", "rolamentos"]; //puxar do banco dps
-
         return (
                 <>
-                        <h2>Reabastecer item</h2>
-                        <form id="rightItemForm">
+                        <h2>Adicionar item</h2>
+                        <form id="leftItemForm">
                                 <div className="formContainer">
                                         <div className="inputContainer">
                                                 <label htmlFor="itemCode">
                                                         Código do item
                                                 </label>
-
-                                                <select
+                                                <input
+                                                        type="text"
                                                         name="itemCode"
-                                                        id="itemCode">
-                                                        <option>
-                                                                Selecione um
-                                                                item
-                                                        </option>
-
-                                                        {itemInfo.map(
-                                                                (item) => (
-                                                                        <option
-                                                                                key={
-                                                                                        item
-                                                                                }
-                                                                                value={
-                                                                                        item
-                                                                                }>
-                                                                                {
-                                                                                        item
-                                                                                }
-                                                                        </option>
-                                                                ),
-                                                        )}
-                                                </select>
+                                                        id="itemCode"
+                                                        placeholder="Ex: PAR-M10-30"
+                                                />
                                         </div>
+
                                         <div className="inputContainer">
                                                 <label htmlFor="itemDescription">
                                                         Descrição do item

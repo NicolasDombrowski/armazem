@@ -33,7 +33,8 @@ h3 {
         align-items: center;
         justify-content: center;
         color: var(--primary);
-        margin: .1rem;
+        margin: 0.1rem;
+        text-align: center;
 }
 
 .sideBarButton:hover {
@@ -54,8 +55,10 @@ h3 {
         box-shadow: 1px 1px 0.5rem var(--themeTertiary);
 }
 
-.selected, .selected:active, .selected:hover {
-        transition: .1s;
+.selected,
+.selected:active,
+.selected:hover {
+        transition: 0.1s;
         background: var(--themeTertiary);
         color: var(--Primary);
         cursor: pointer;
@@ -63,3 +66,27 @@ h3 {
         box-shadow: 1px 1px 0.5rem var(--themeTertiary);
 }
 
+@media only screen and (max-width: 1366px) {
+        .sideBar {
+                width: 25%;
+                padding: 1rem 0 0 1rem;
+        }
+        .buttonContainer{
+                padding: 0 0 2rem 0;
+        }
+}
+
+@media only screen and (max-width: 768px) {
+        .sideBar {
+                display: none;
+        }
+        .buttonContainer{
+                padding: 0 0 2rem 0;
+        }
+
+}@media only screen and (max-width: 412px) {
+        .sideBar {
+                display: none;
+                width: 80%;
+        }
+}

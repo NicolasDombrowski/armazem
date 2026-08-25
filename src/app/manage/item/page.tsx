@@ -4,8 +4,8 @@ import "@/app/transitions/show-hide.css";
 
 import Chart from "@/app/components/chart";
 import ChartSwitch from "@/app/components/chartSwitch";
-import RegisterItem from "./register/page";
-import RestockItem from "./restock/page";
+import RegisterItem from "./register";
+import EditItem from "./edit";
 
 import { useState } from "react";
 
@@ -16,7 +16,7 @@ export default function ManageItem() {
 
         return (
                 <>
-                        <title>Cadastro de Itens</title>
+                        <title>Itens</title>
                         <div className="registerItem">
                                 <h1>Gerenciar itens</h1>
                                 <Chart
@@ -79,7 +79,7 @@ export default function ManageItem() {
                                                         <RegisterItem />
                                                 }
                                                 chartRightContent={
-                                                        <RestockItem />
+                                                        <EditItem />
                                                 }
                                         />
                                         <div className="submitContainer">
