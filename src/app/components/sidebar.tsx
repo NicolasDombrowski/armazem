@@ -32,6 +32,9 @@ export default function Sidebar() {
                                         <div
                                                 className={`sideBarButton ${pathname === "/manage/user" ? "selected" : ""}`}
                                                 data-name="userManagement"
+                                                onClick={() => {        
+                                                        window.location.href = "/manage/user";
+                                                }}
                                         >
                                                 <span>
                                                         Usuários

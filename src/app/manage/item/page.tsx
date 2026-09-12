@@ -78,9 +78,7 @@ export default function ManageItem() {
                                                 chartLeftContent={
                                                         <RegisterItem />
                                                 }
-                                                chartRightContent={
-                                                        <EditItem />
-                                                }
+                                                chartRightContent={<EditItem />}
                                         />
                                         <div className="submitContainer">
                                                 <button

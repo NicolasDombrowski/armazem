@@ -49,14 +49,29 @@ export default function EditItem() {
                                                         name="itemDescription"
                                                         id="itemDescription"
                                                         placeholder="Ex: Parafuso M10 x 30"
+                                                        disabled
                                                 />
                                         </div>
 
+                                        <div className="inputContainer">
+                                                <label htmlFor="itemQuantity">
+                                                        Quantidade recebida
+                                                </label>
+                                                <input
+                                                        type="number"
+                                                        name="itemQuantity"
+                                                        id="itemQuantity"
+                                                        placeholder="Ex: 150"
+                                                        min="0"
+                                                />
+                                        </div>
+                                        
                                         <div className="inputContainer">
                                                 <label htmlFor="itemCategory">
                                                         Categoria
                                                 </label>
                                                 <select
+                                                        disabled
                                                         name="itemCategory"
                                                         id="itemCategory">
                                                         <option
@@ -88,19 +103,6 @@ export default function EditItem() {
                                         </div>
 
                                         <div className="inputContainer">
-                                                <label htmlFor="itemQuantity">
-                                                        Quantidade recebida
-                                                </label>
-                                                <input
-                                                        type="number"
-                                                        name="itemQuantity"
-                                                        id="itemQuantity"
-                                                        placeholder="Ex: 150"
-                                                        min="0"
-                                                />
-                                        </div>
-
-                                        <div className="inputContainer">
                                                 <label htmlFor="itemCritical">
                                                         Estoque mínimo
                                                 </label>
@@ -110,6 +112,7 @@ export default function EditItem() {
                                                         id="itemCritical"
                                                         placeholder="Ex: 20"
                                                         min="0"
+                                                        disabled
                                                 />
                                         </div>
 
@@ -122,6 +125,7 @@ export default function EditItem() {
                                                         type="text"
                                                         name="itemLocalization"
                                                         id="itemLocalization"
+                                                        disabled
                                                 />
                                         </div>
                                 </div>

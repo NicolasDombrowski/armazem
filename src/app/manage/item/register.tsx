@@ -33,6 +33,19 @@ export default function RegisterItem() {
                                         </div>
 
                                         <div className="inputContainer">
+                                                <label htmlFor="itemQuantity">
+                                                        Quantidade recebida
+                                                </label>
+                                                <input
+                                                        type="number"
+                                                        name="itemQuantity"
+                                                        id="itemQuantity"
+                                                        placeholder="Ex: 150"
+                                                        min="0"
+                                                />
+                                        </div>
+
+                                        <div className="inputContainer">
                                                 <label htmlFor="itemCategory">
                                                         Categoria
                                                 </label>
@@ -65,19 +78,6 @@ export default function RegisterItem() {
                                                                 ),
                                                         )}
                                                 </select>
-                                        </div>
-
-                                        <div className="inputContainer">
-                                                <label htmlFor="itemQuantity">
-                                                        Quantidade recebida
-                                                </label>
-                                                <input
-                                                        type="number"
-                                                        name="itemQuantity"
-                                                        id="itemQuantity"
-                                                        placeholder="Ex: 150"
-                                                        min="0"
-                                                />
                                         </div>
 
                                         <div className="inputContainer">

@@ -1,12 +1,18 @@
+:disabled{
+        filter:brightness(.7);
+}
+
 .registerTool > h1,
-.registerItem > h1 {
+.registerItem > h1,
+.registerUser > h1 {
         color: var(--themeTertiary);
         text-align: left;
         padding: 0 0 2rem 0;
 }
 
 .registerTool > h3,
-.registerItem > h3 {
+.registerItem > h3,
+.registerUser > h3 {
         font-weight: 75;
         font-size: 1rem;
 }
@@ -22,7 +28,8 @@
 }
 
 .registerItem,
-.registerTool {
+.registerTool,
+.registerUser {
         max-height: 100%;
 }
 
