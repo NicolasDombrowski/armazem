@@ -13,6 +13,31 @@ export default function ManageUser() {
         let user: number = 0; //puxar do banco dps
         const [currentChart, setChart] = useState<"left" | "right">("left");
 
+        interface User {
+                name: string;
+                id: number;
+                phone: number;
+                email: string;
+                department: string;
+                acessProfile: string;
+        }
+        const UserTeste = {
+                name: "jao",
+                id: 231,
+                phone: 999999999,
+                email: "jao@mail",
+                department: "almoxarifado",
+                acessProfile: "operacional",
+        };
+        const UserTeste2 = {
+                name: "jason",
+                id: 232,
+                phone: 88888888,
+                email: "jason@mail",
+                department: "mecanica",
+                acessProfile: "supervisor",
+        };
+        const users: User[] = [UserTeste, UserTeste2]; //puxar dps da database
         return (
                 <>
                         <title>Usuários</title>
@@ -27,80 +52,31 @@ export default function ManageUser() {
                                         }}
                                 />
                                 <div className="secondaryChart">
-                                        <div className="radioContainer">
-                                                <label className="radioButton">
-                                                        <input
-                                                                checked={
-                                                                        currentChart ===
-                                                                        "left"
-                                                                }
-                                                                type="radio"
-                                                                name="UserAction"
-                                                                value="newUser"
-                                                                onChange={() =>
-                                                                        setChart(
-                                                                                "left",
-                                                                        )
-                                                                }
-                                                        />
+                                        <div className="mainContainer">
+                                                        <div className="listItem listItemHeader">
+                                                                <div className="listItemInner listItemInnerHeader">
+                                                                        <div style={{gridColumn:1}}>ID</div>
+                                                                        <div style={{gridColumn:2}}>Nome</div>
+                                                                        <div style={{gridColumn:3}}>Departamento</div>
+                                                                        <div style={{gridColumn:4}}>Perfil de acesso</div></div>
+                                                                </div>
+                                                {users.map((user, index) => (  
 
-                                                        <span>
-                                                                Cadastrar
-                                                                usuário
-                                                        </span>
-                                                </label>
-
-                                                <label className="radioButton">
-                                                        <input
-                                                                type="radio"
-                                                                name="UserAction"
-                                                                value="restockUser"
-                                                                checked={
-                                                                        currentChart ===
-                                                                        "right"
-                                                                }
-                                                                onChange={() =>
-                                                                        setChart(
-                                                                                "right",
-                                                                        )
-                                                                }
-                                                        />
-                                                        <span>
-                                                                Editar usuário
-                                                        </span>
-                                                </label>
+                                                        <div className={`listItem ${index % 2 == 0? 'listItemEven' : ''}`}>
+                                                                <div key={`listItem${index}`}className="listItemInner">
+                                                                        <div style={{gridColumn:1}}>{user.id}</div>
+                                                                        <div style={{gridColumn:2}}>{user.name}</div>
+                                                                        <div style={{gridColumn:3}}>{user.department}</div>
+                                                                        <div style={{gridColumn:4}}>{user.acessProfile}</div>
+                                                                </div>
+                                                                <div className="listItemDrop"></div>
+                                                        </div>
+                                                ))}
                                         </div>
 
-                                        <ChartSwitch
-                                                chartCurrent={currentChart}
-                                                chartLeftContent={
-                                                        <RegisterUser />
-                                                }
-                                                chartRightContent={<EditUser />}
-                                        />
-                                        <div className="submitContainer">
-                                                <button
-                                                        form={
-                                                                currentChart ===
-                                                                "left"
-                                                                        ? "leftUserForm"
-                                                                        : "rightUserForm"
-                                                        }
-                                                        type="reset"
-                                                        className="resetButton">
-                                                        Limpar
-                                                </button>
-
-                                                <button
-                                                        form={
-                                                                currentChart ===
-                                                                "left"
-                                                                        ? "leftUserForm"
-                                                                        : "rightUserForm"
-                                                        }
-                                                        type="submit"
-                                                        className="submitButton">
-                                                        Cadastrar
+                                        <div className="bottomButtonContainer">
+                                                <button className="registerButton">
+                                                        Registrar usuário
                                                 </button>
                                         </div>
                                 </div>
