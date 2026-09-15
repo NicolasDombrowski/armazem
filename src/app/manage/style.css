@@ -67,13 +67,14 @@
 
 .secondaryChart {
         padding: 2rem;
-        margin-top: 2rem;
+        margin: 2rem 0 2rem 0;
         display: flex;
         flex-direction: column;
         width: 100%;
         border-radius: 1rem;
         background: var(--primary);
         box-shadow: 0 0 2rem var(--tertiary);
+        max-height: calc(100% - 15rem);
 }
 
 .formContainer {
@@ -154,6 +155,13 @@ form {
         padding: 0.1rem 0.1rem 0 0;
         box-shadow: 1px 1px 0.5rem var(--themeTertiary);
 }
+
+
+.mainContainer{
+        max-height: 50%;
+        overflow-y: scroll;
+}
+
 
 .listItem {
         height: 2.5rem;
