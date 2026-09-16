@@ -3,13 +3,16 @@
         --foreground: var(--lightPrimary);
 
         --lightPrimary: hsl(0, 0%, 95%);
-        --lightSecondary: hsl(0, 0, 85%);
-        --lightTertiary: hsl(0, 0, 75%);
+        --lightSecondary: hsl(0, 0%, 85%);
+        --lightTertiary: hsl(0, 0%, 75%);
+        --lightQuaternary: hsl(0, 0%, 60%);
+
         --enlightened: hsla(0, 0%, 90%, 0.05);
 
         --darkPrimary: hsl(0, 0%, 5%);
         --darkSecondary: hsl(0, 0%, 15%);
         --darkTertiary: hsl(0, 0%, 25%);
+        --darkQuaternary: hsl(0, 0%, 40);
 
         --themePrimary: hsl(210, 100%, 50%);
         --themeSecondary: hsl(210, 100%, 40%);
@@ -41,6 +44,7 @@
         --primary: var(--lightPrimary);
         --secondary: var(--lightSecondary);
         --tertiary: var(--lightTertiary);
+        --quaternary: var(--lightQuaternary);
 
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {

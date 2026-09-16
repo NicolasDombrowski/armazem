@@ -156,74 +156,10 @@ form {
         box-shadow: 1px 1px 0.5rem var(--themeTertiary);
 }
 
-
-.mainContainer{
+.mainContainer {
         max-height: 50%;
         overflow-y: scroll;
 }
-
-
-.listItem {
-        height: 2.5rem;
-        width: 100%;
-        background-color: var(--tertiary);
-        display: flex;
-        flex-direction: column;
-        color: var(--darkPrimary);
-        transition: .15s;
-        z-index: auto;
-        position: relative;
-}
-.listItem:hover{
-        box-shadow: 0 0 .5rem var(--darkTertiary);
-        z-index: 9999;
-}
-
-.listItemEven {
-        background-color: var(--secondary);
-        color: var(--darkTertiary);
-}
-
-.listItemInner {
-        height: 100%;
-        width: 98%;
-        padding: 0 1% 0 1%;
-        display: grid;
-        grid-template-columns: 1fr 10fr 8fr 8fr;
-        align-items: center;
-}
-
-.listItemHeader {
-        background-color: var(--themeTertiary);
-        color: var(--primary);
-}
-
-.listItemHeader:hover{
-        box-shadow: none;
-}
-
-.listItemInnerHeader{
-        font-weight: bold;
-}
-
-
-.grid1 {
-        grid-column: 1;
-}
-.grid2 {
-        grid-column: 2;
-}
-.grid3 {
-        grid-column: 3;
-}
-.grid4 {
-        grid-column: 4;
-}
-
-
-
-
-
 
 .registerButton {
         background: var(--themeTertiary);

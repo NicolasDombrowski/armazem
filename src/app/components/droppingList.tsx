@@ -1,33 +1,85 @@
 "useclient";
+import "./droppingList.css";
 
 import { useState } from "react";
 
-interface listHeader {
+import EditField from "./editField";
+
+export interface listHeader {
         headerColumnName: string;
-        headerColumnSize: number;
+        headerColumnSize: string;
 }
 
-export default function DroppingList(header: listHeader[], listItems: any[]) {
+export default function DroppingList({
+        props,
+}: {
+        props: { header: listHeader[]; listItems: any[] };
+}) {
+
+        const [expanded, setExpanded] = useState<number[]>([]);
+
         return (
                 <>
-                        {header.map((mappedHeader, index) => (
-                                <div className="listItem listItemHeader">
+                        <div className="listItem listItemHeader">
+                                {props.header.map((mappedHeader, index) => (
                                         <div
                                                 style={{
-                                                        gridColumn: index,
-                                                        width:
-                                                                mappedHeader.headerColumnSize +
-                                                                "%",
+                                                        width: mappedHeader.headerColumnSize,
                                                 }}>
                                                 {mappedHeader.headerColumnName}
                                         </div>
-                                </div>
-                        ))}
+                                ))}
+                        </div>
 
-                        {listItems.map((listItem, index) => (
-                                <div className={`listItem ${index % 2 === 0 ? "even" : ""}`}>
-                                        
-                                </div>
+                        {props.listItems.map((mappedItem, itemIndex) => (
+                                <>
+                                        <div
+                                                className={`listItem ${itemIndex % 2 === 0 ? "listItemEven" : ""}`}>
+                                                {props.header.map(
+                                                        (
+                                                                mappedHeader,
+                                                                headerIndex,
+                                                        ) => (
+                                                                <div
+                                                                        style={{
+                                                                                width: mappedHeader.headerColumnSize,
+                                                                        }}
+                                                                        className="listItemInner"
+                                                                        key={`${mappedHeader}${headerIndex}`}>
+                                                                        {String(
+                                                                                Object.values(
+                                                                                        mappedItem,
+                                                                                )[
+                                                                                        headerIndex
+                                                                                ]
+                                                                        )}
+                                                                </div>
+                                                        ),
+                                                )}
+                                        </div>
+                                        <div className={`listItemExpanded ${expanded.includes(itemIndex) ? "expanded" : ""}`}>
+                                                
+                                                {props.header.map(
+                                                        (
+                                                                mappedHeader,
+                                                                headerIndex,
+                                                        ) => (
+                                                                <EditField
+                                                                        props={{
+                                                                                label: mappedHeader.headerColumnName,
+                                                                                value: Object.values(
+                                                                                        mappedItem,
+                                                                                )[
+                                                                                        headerIndex
+                                                                                ],
+                                                                                form: "",
+                                                                                key: "",
+                                                                        }}
+                                                                />
+                                                        ),
+                                                )}
+                                        </div>
+                                </>
                         ))}
                 </>
         );
