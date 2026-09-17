@@ -7,7 +7,7 @@ export default function EditField({
 }: {
         props: { label: any; value: any; form: any; key: any | null };
 }) {
-        const [currentlyEditing, setCurrentlyEditing] = useState(false);
+        const [editing, setEditing] = useState(false);
 
         return (
                 <div key={props.key} className="editField">

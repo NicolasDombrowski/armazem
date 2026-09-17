@@ -1,5 +1,4 @@
-
-.listItem{
+.listItem {
         width: 100%;
         height: 2.5rem;
         padding: 0 1% 0 1%;
@@ -10,28 +9,46 @@
         font-weight: bolder;
 }
 
-.listItem:hover{
+.listItem:hover {
         position: relative;
         box-shadow: 0 0 1rem var(--darkQuaternary);
 }
 
-.listItemEven{
+.listItemEven {
         background-color: var(--lightQuaternary);
         color: var(--primary);
 }
 
-.listItemEven:hover{
+.listItemEven:hover {
         box-shadow: 0 0 1rem var(--darkTertiary);
 }
 
-.listItemHeader{
+.listItemHeader {
         background-color: var(--themeSecondary);
 }
 
-.listItemExpanded{
-        display: none;
-        transition: ;
-}
-.expanded{
+.listItemExpandable {
         display: flex;
+        overflow: hidden;
+        max-height: 0;
+        transition: all 0.5s ease;
+}
+
+.retracted {
+        max-height: 0;
+}
+
+.expanded {
+        max-height: 10rem;
+        box-shadow: 1rem 0 1rem var(--darkTertiary);
+        position: relative;
+        z-index: 1;
+}
+
+.expandedHeader {
+        position: relative;
+        transition: all 0.5s ease;
+        background-color: var(--themeSecondary);
+        box-shadow: 0 0 1rem var(--darkSecondary);
+        z-index: 3;
 }

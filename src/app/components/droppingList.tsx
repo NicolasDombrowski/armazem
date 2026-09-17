@@ -16,7 +16,7 @@ export default function DroppingList({
         props: { header: listHeader[]; listItems: any[] };
 }) {
 
-        const [expanded, setExpanded] = useState<number[]>([]);
+        const [expanded, setExpanded] = useState<number>();
 
         return (
                 <>
@@ -33,8 +33,8 @@ export default function DroppingList({
 
                         {props.listItems.map((mappedItem, itemIndex) => (
                                 <>
-                                        <div
-                                                className={`listItem ${itemIndex % 2 === 0 ? "listItemEven" : ""}`}>
+                                        <div    onClick={() => setExpanded(itemIndex)}
+                                                className={`listItem ${itemIndex % 2 === 0 ? "listItemEven" : ""} ${expanded == itemIndex ? "expandedHeader" : ""}`}>
                                                 {props.header.map(
                                                         (
                                                                 mappedHeader,
@@ -57,7 +57,7 @@ export default function DroppingList({
                                                         ),
                                                 )}
                                         </div>
-                                        <div className={`listItemExpanded ${expanded.includes(itemIndex) ? "expanded" : ""}`}>
+                                        <div className={`listItemExpandable ${expanded == itemIndex ? "expanded" : "retracted"}`}>
                                                 
                                                 {props.header.map(
                                                         (
