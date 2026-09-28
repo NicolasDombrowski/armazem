@@ -2,9 +2,9 @@
 import "../style.css";
 
 import Chart from "@/app/components/chart";
-import DroppingList from "@/app/components/droppingList";
+import List from "@/app/components/list";
 
-import { listHeader } from "@/app/components/droppingList";
+import { listHeader } from "@/app/components/list";
 
 
 
@@ -33,10 +33,10 @@ export default function ManageUser() {
 
 
         const header: listHeader[] = [
-                { headerColumnName: "id", headerColumnSize: "10%" },
-                { headerColumnName: "nome", headerColumnSize: "35%" },
-                { headerColumnName: "departamento", headerColumnSize: "27.5%" },
-                { headerColumnName: "perfil de acesso", headerColumnSize: "27.5%" },
+                { headerColumnName: "id", headerColumnSize: 10 },
+                { headerColumnName: "nome", headerColumnSize: 35 },
+                { headerColumnName: "departamento", headerColumnSize: 27.5 },
+                { headerColumnName: "perfil de acesso", headerColumnSize: 27.5 },
         ];
 
         return (
@@ -54,12 +54,7 @@ export default function ManageUser() {
                                 />
                                 <div className="secondaryChart">
                                         <div className="mainContainer">
-                                                <DroppingList
-                                                        props={{
-                                                                header: header,
-                                                                listItems: users,
-                                                        }}
-                                                />
+                                                {List(header, users)}
                                         </div>
 
                                         <div className="bottomButtonContainer">
