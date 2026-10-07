@@ -54,9 +54,9 @@ export default function ManageUser() {
                                 />
                                 <div className="secondaryChart">
                                         <div className="mainContainer">
-                                                <List header={header} listItems={users} />
+                                                <List header={header} listItems={users} windowTitle="Editar Usuário" />
                                         </div>
-
+                                        
                                         <div className="bottomButtonContainer">
                                                 <button className="registerButton">
                                                         Registrar usuário

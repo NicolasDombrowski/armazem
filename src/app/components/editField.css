@@ -1,17 +1,22 @@
 .editField {
     width: fit-content;
-    height: 4rem;
+    height: 3.3rem;   
     display: flex;
     flex-direction: column;
-    border: 2px solid var(--darkTertiary);
+    justify-content: space-between;
+    margin: 10px;
+    border: 1px solid var(--tertiary);
+    border-radius: 5px;
+    padding: 0 5px 0 5px;
 }
 
-.editFieldInner {
+.editFieldInner { 
     display: flex;
     flex-direction: row;
-    height: 2.5rem;
+    height: 2rem;
     justify-content: space-between;
     width: fit-content;
+    transform: translate(0 , -25%);
 }
 
 .editFieldField {
@@ -23,7 +28,13 @@
     width: 15rem;
 }
 
-
+.editFieldLabel{
+    margin: 0;
+    transform: translate(5px , -70%);
+    background-color: var(--primary);
+    width: fit-content;
+    padding: 0 2px 0 2px;
+}
 
 .editFieldInput {
     margin: 0px;
@@ -35,10 +46,6 @@
     padding: 0;
 }
 
-.editFieldLabel {
-    margin: 0;
-}
-
 .editFieldInput,
 .editFieldSpan {
     color: var(--darkTertiary);
@@ -47,6 +54,7 @@
     width: 100%;
     opacity: 1;
     overflow: hidden;
+    margin: 0 2px 0 0;
     
     transition:
         width .2s ease-in,
@@ -70,7 +78,6 @@
 }
 
 .shown {
-    width: 100%;
     opacity: 1;
     padding: 8px;
     transition-delay: .2s;
@@ -93,4 +100,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border: none;
+    color: var(--primary);
+    border-radius: 3px;
+}
+.editFieldButtonEdit{
+    background-color: var(--themeGreen);
+}
+.editFieldButtonCancel{
+    background-color: var(--themeRed);
 }

@@ -3,7 +3,7 @@
 import "./editField.css"
 
 import XIcon from "@/app/assets/icons/x-lg.svg"
-import CheckIcon from "@/app/assets/icons/check-lg.svg"
+import PencilIcon from "@/app/assets/icons/pencil-fill.svg"
 
 import { useState } from "react";
 
@@ -24,8 +24,8 @@ export default function EditField({
         const [editing, setEditing] = useState(false);
 
         return (
-                <div className="editFieldLabel">
-                        <label className="edit">{label}</label>
+                <div className="editField">
+                        <label className="editFieldLabel">{label}</label>
 
                         <div className="editFieldInner">
                                 <div className="editFieldField">
@@ -43,7 +43,7 @@ export default function EditField({
 
                                 <button
                                         type="button"
-                                        className="editFieldButton"
+                                        className={`editFieldButton ${editing ? 'editFieldButtonCancel' : 'editFieldButtonEdit'}`}
                                         onClick={() => setEditing(!editing)}
                                 >
 
@@ -51,13 +51,13 @@ export default function EditField({
                                                 className={`editFieldButtonIcon ${editing ? 'shownIcon' : 'hiddenIcon'}`}
                                                 width={32}
                                                 height={32}
-                                                viewBox={"0 0 18 18"} />
+                                                viewBox={"0 0 16 16"} />
 
-                                        <CheckIcon
+                                        <PencilIcon
                                                 className={`editFieldButtonIcon ${editing ? 'hiddenIcon' : 'shownIcon'}`}
-                                                width={32}
-                                                height={32}
-                                                viewBox={"0 0 18 18"} />
+                                                width={24}
+                                                height={24}
+                                                viewBox={"0 0 16 16"} />
 
                                 </button>
                         </div>
