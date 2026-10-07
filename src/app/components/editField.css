@@ -1,0 +1,96 @@
+.editField {
+    width: fit-content;
+    height: 4rem;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--darkTertiary);
+}
+
+.editFieldInner {
+    display: flex;
+    flex-direction: row;
+    height: 2.5rem;
+    justify-content: space-between;
+    width: fit-content;
+}
+
+.editFieldField {
+    height: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    width: 15rem;
+}
+
+
+
+.editFieldInput {
+    margin: 0px;
+}
+
+.hidden {
+    width: 0px;
+    overflow: hidden;
+    padding: 0;
+}
+
+.editFieldLabel {
+    margin: 0;
+}
+
+.editFieldInput,
+.editFieldSpan {
+    color: var(--darkTertiary);
+    text-align: left;
+    margin: 0;
+    width: 100%;
+    opacity: 1;
+    overflow: hidden;
+    
+    transition:
+        width .2s ease-in,
+        opacity .2s ease,
+        padding .1s ease;
+}
+
+.editFieldInput {
+    padding: 8px;
+}
+
+.editFieldSpan {
+    padding: 8px;
+}
+
+.hidden {
+    width: 0;
+    opacity: 0;
+    padding: 0;
+    transition-delay: 0s;
+}
+
+.shown {
+    width: 100%;
+    opacity: 1;
+    padding: 8px;
+    transition-delay: .2s;
+}
+
+.hiddenIcon {
+    width:0px;
+    transform: rotateZ(-90deg);
+}
+
+.shownIcon {
+    width: 100%;
+    transform: rotateZ(0deg);
+    transition: all .2s;
+}
+
+.editFieldButton {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -54,7 +54,7 @@ export default function ManageUser() {
                                 />
                                 <div className="secondaryChart">
                                         <div className="mainContainer">
-                                                {List(header, users)}
+                                                <List header={header} listItems={users} />
                                         </div>
 
                                         <div className="bottomButtonContainer">

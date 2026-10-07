@@ -26,3 +26,68 @@
 .listItemHeader {
         background-color: var(--themeSecondary);
 }
+
+.expandedListItemContainer {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.281);
+        align-items: center;
+        justify-content: center;
+}
+
+.listItemExpandedClosed {
+        display: none;
+}
+
+.listItemExpanded {
+        width: 55rem;
+        height: 40rem;
+        background-color: aliceblue;
+        z-index: 2;
+}
+
+.expandedListItemButtonContainer {
+        display: flex;
+        width: 100%;
+        height: 2.5em;
+        flex-direction: row;
+        justify-content: right;
+        align-items: center;
+}
+
+.expandedListItemButton{
+        width: 2.5rem;
+        height: 2.5rem;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0;
+        border:none ;
+}
+
+.expandedListItemButtonClose{
+        background-color: var(--themeRed);
+        color: var(--primary);
+}
+
+.expandedListItemButton:hover {
+        transition: 0.1s;
+        filter: brightness(1.2);
+        color: var(--secondary);
+        cursor: pointer;
+        padding: 0 0 0.1rem 0.1rem;
+        box-shadow: 1px 1px 0.5rem var(--themeTertiary);
+}
+
+.expandedListItemButton:active {
+        transition: 0.01s;
+        filter: brightness(0.8);
+        color: var(--primary);
+        cursor: pointer;
+        padding: 0.1rem 0.1rem 0 0;
+        box-shadow: 1px 1px 0.5rem var(--themeTertiary);
+}
