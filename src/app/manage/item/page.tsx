@@ -1,18 +1,27 @@
 "use client";
 import "../style.css";
-import "@/app/transitions/show-hideHorizontal.css";
 
 import Chart from "@/app/components/chart";
-import ChartSwitch from "@/app/components/chartSwitch";
 import RegisterItem from "./register";
-import EditItem from "./edit";
+import List from "@/app/components/list";
 
-import { useState } from "react";
+import items from "./teste";
+
+
+import { listHeader } from "@/app/components/list";
+
 
 export default function ManageItem() {
         let item: number = 0; //puxar do banco dps
         let criticalItem: number = 0; //puxar do banco dps
-        const [currentChart, setChart] = useState<"left" | "right">("left");
+
+        const header: listHeader[] = [
+                { headerColumnName: "id", headerColumnSize: 10 },
+                { headerColumnName: "nome", headerColumnSize: 27.5 },
+                { headerColumnName: "codigo", headerColumnSize: 20 },
+                { headerColumnName: "quantidade", headerColumnSize: 15 },
+                { headerColumnName: "localização", headerColumnSize: 27.5 },
+        ];
 
         return (
                 <>
@@ -29,80 +38,13 @@ export default function ManageItem() {
                                         }}
                                 />
                                 <div className="secondaryChart">
-                                        <div className="radioContainer">
-                                                <label className="radioButton">
-                                                        <input
-                                                                checked={
-                                                                        currentChart ===
-                                                                        "left"
-                                                                }
-                                                                type="radio"
-                                                                name="itemAction"
-                                                                value="newItem"
-                                                                onChange={() =>
-                                                                        setChart(
-                                                                                "left",
-                                                                        )
-                                                                }
-                                                        />
-
-                                                        <span>
-                                                                Cadastrar novo
-                                                                item
-                                                        </span>
-                                                </label>
-
-                                                <label className="radioButton">
-                                                        <input
-                                                                type="radio"
-                                                                name="itemAction"
-                                                                value="restockItem"
-                                                                checked={
-                                                                        currentChart ===
-                                                                        "right"
-                                                                }
-                                                                onChange={() =>
-                                                                        setChart(
-                                                                                "right",
-                                                                        )
-                                                                }
-                                                        />
-                                                        <span>
-                                                                Reabastecer item
-                                                        </span>
-                                                </label>
+                                        <div className="mainContainer">
+                                                <List header={header} listItems={items} windowTitle="Editar Item" />
                                         </div>
-
-                                        <ChartSwitch
-                                                chartCurrent={currentChart}
-                                                chartLeftContent={
-                                                        <RegisterItem />
-                                                }
-                                                chartRightContent={<EditItem />}
-                                        />
-                                        <div className="submitContainer">
-                                                <button
-                                                        form={
-                                                                currentChart ===
-                                                                "left"
-                                                                        ? "leftItemForm"
-                                                                        : "rightItemForm"
-                                                        }
-                                                        type="reset"
-                                                        className="resetButton">
-                                                        Limpar
-                                                </button>
-
-                                                <button
-                                                        form={
-                                                                currentChart ===
-                                                                "left"
-                                                                        ? "leftItemForm"
-                                                                        : "rightItemForm"
-                                                        }
-                                                        type="submit"
-                                                        className="submitButton">
-                                                        Cadastrar
+                                        
+                                        <div className="bottomButtonContainer">
+                                                <button className="registerButton">
+                                                        Registrar Item
                                                 </button>
                                         </div>
                                 </div>

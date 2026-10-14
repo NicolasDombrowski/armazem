@@ -47,7 +47,7 @@
 .listItemExpanded {
         width: 55rem;
         height: 40rem;
-        background-color: aliceblue;
+        background-color: var(--primary);
         z-index: 2;
 }
 
@@ -60,16 +60,16 @@
         align-items: center;
 }
 
-.expandedListItemButton{
+.expandedListItemButton {
         width: 2.5rem;
         height: 2.5rem;
         align-items: center;
         justify-content: center;
         border-radius: 0;
-        border:none ;
+        border: none;
 }
 
-.expandedListItemButtonClose{
+.expandedListItemButtonClose {
         background-color: var(--themeRed);
         color: var(--primary);
 }
@@ -80,7 +80,7 @@
         color: var(--secondary);
         cursor: pointer;
         padding: 0 0 0.1rem 0.1rem;
-        box-shadow: 1px 1px 0.5rem var(--themeTertiary);
+        box-shadow: 1px 1px 0.5rem var(--darkTertiary);
 }
 
 .expandedListItemButton:active {
@@ -89,10 +89,24 @@
         color: var(--primary);
         cursor: pointer;
         padding: 0.1rem 0.1rem 0 0;
-        box-shadow: 1px 1px 0.5rem var(--themeTertiary);
+        box-shadow: 1px 1px 0.5rem var(--darkTertiary);
 }
 
-.windowTitle{
+.windowTitle {
         color: var(--themeTertiary);
         padding-left: 1rem;
+}
+
+.listItemExpanded {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+}
+
+.expandedListItemLowerButtonContainer {
+        display: flex;
+        height: 3rem;
+        justify-content: right;
+        align-items: center;
+        padding: 0 1rem 1rem 0;
 }

@@ -1,105 +1,47 @@
 "use client";
 import "../style.css";
-import "@/app/transitions/show-hideHorizontal.css";
 
-import Chart from "../../components/chart";
+import Chart from "@/app/components/chart";
+import RegisterItem from "./register";
+import List from "@/app/components/list";
+
+import tools from "./teste";
+
+import { listHeader } from "@/app/components/list";
+
 
 export default function RegisterTool() {
-        let tool: number = 0; //puxar do banco dps
+        const tool: number = 0; //puxar do banco dps
+
+        const header: listHeader[] = [
+                { headerColumnName: "id", headerColumnSize: 10 },
+                { headerColumnName: "nome", headerColumnSize: 27.5 },
+                { headerColumnName: "codigo", headerColumnSize: 20 },
+                { headerColumnName: "categoria", headerColumnSize: 15 },
+                { headerColumnName: "localização", headerColumnSize: 27.5 },
+        ];
 
         return (
                 <>
-                        <title>Cadastro de Ferramentas</title>
+                        <title>Ferramentas</title>
                         <div className="registerTool">
-                                <h1>Cadastro de Ferramentas</h1>
+                                <h1>Gerenciar Ferramentas</h1>
                                 <Chart
                                         props={{
                                                 title: `${tool}`,
-                                                subtitle: "Ferramentas cadastradas",
+                                                subtitle: "Ferramentas cadastrados",
                                                 secondaryTitle: "",
-                                                secondarySubtitle: "",
+                                                secondarySubtitle: ""
                                         }}
                                 />
                                 <div className="secondaryChart">
-                                        <h2>Cadastrar nova ferramenta</h2>
-                                        <form id="toolForm">
-                                                <div className="formContainer shown">
-                                                        <div className="inputContainer">
-                                                                <label htmlFor="toolName">
-                                                                        Nome da
-                                                                        ferramenta
-                                                                </label>
-                                                                <input
-                                                                        placeholder="Ex: Chave de fenda"
-                                                                        type="text"
-                                                                        name="toolName"
-                                                                        id="toolName"
-                                                                />
-                                                        </div>
+                                        <div className="mainContainer">
+                                                <List header={header} listItems={tools} windowTitle="Editar Ferramenta" />
+                                        </div>
 
-                                                        <div className="inputContainer">
-                                                                <label htmlFor="patrimonialCode">
-                                                                        Código
-                                                                        patrimonial
-                                                                </label>
-                                                                <input
-                                                                        placeholder="Ex: furadeira-001"
-                                                                        type="text"
-                                                                        name="patrimonialCode"
-                                                                        id="patrimonialCode"
-                                                                />
-                                                        </div>
-
-                                                        <div className="inputContainer">
-                                                                <label htmlFor="category">
-                                                                        Categoria
-                                                                </label>
-                                                                <select
-                                                                        name="category"
-                                                                        id="category">
-                                                                        <option value="0">
-                                                                                Selecione
-                                                                                uma
-                                                                                categoria
-                                                                        </option>
-                                                                        <option value="1">
-                                                                                Elétrica
-                                                                        </option>
-                                                                        <option value="2">
-                                                                                Manual
-                                                                        </option>
-                                                                        <option value="3">
-                                                                                Hidráulica
-                                                                        </option>
-                                                                </select>
-                                                        </div>
-
-                                                        <div className="inputContainer">
-                                                                <label htmlFor="localization">
-                                                                        Localização
-                                                                </label>
-                                                                <input
-                                                                        placeholder="Ex: Prateleira 1, Gaveta 2"
-                                                                        type="text"
-                                                                        name="localization"
-                                                                        id="localization"
-                                                                />
-                                                        </div>
-                                                </div>
-                                        </form>
-                                        <div className="submitContainer">
-                                                <button
-                                                        form="toolForm"
-                                                        type="reset"
-                                                        className="resetButton">
-                                                        Limpar
-                                                </button>
-
-                                                <button
-                                                        form="toolForm"
-                                                        type="submit"
-                                                        className="submitButton">
-                                                        Cadastrar
+                                        <div className="bottomButtonContainer">
+                                                <button className="registerButton">
+                                                        Registrar Ferramenta
                                                 </button>
                                         </div>
                                 </div>

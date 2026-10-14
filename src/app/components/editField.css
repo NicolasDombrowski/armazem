@@ -104,6 +104,26 @@
     color: var(--primary);
     border-radius: 3px;
 }
+
+.editFieldButton:hover {
+        transition: 0.1s;
+        filter: brightness(1.2);
+        color: var(--secondary);
+        cursor: pointer;
+        padding: 0 0 0.1rem 0.1rem;
+        box-shadow: 1px 1px 0.5rem var(--darkTertiary);
+}
+
+.editFieldButton:active {
+        transition: 0.01s;
+        filter: brightness(0.8);
+        color: var(--primary);
+        cursor: pointer;
+        padding: 0.1rem 0.1rem 0 0;
+        box-shadow: 1px 1px 0.5rem var(--darkTertiary);
+}
+
+
 .editFieldButtonEdit{
     background-color: var(--themeGreen);
 }

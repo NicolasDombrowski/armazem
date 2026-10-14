@@ -4,20 +4,21 @@ import "./list.css"
 
 import XIcon from "@/app/assets/icons/x-lg.svg"
 
-import { Fragment, useState } from "react";
-import { useEffect } from "react";
+import { Fragment, useState, useEffect } from "react";
 
 import EditField from "./editField";
+import Button from "./button";
 
 export interface listHeader {
         headerColumnName: string;
         headerColumnSize: number;
 }
 
-export default function List({ header, listItems, windowTitle }: { header: listHeader[]; listItems: any[]; windowTitle: string }) {
+export default function List({ header, listItems, windowTitle }: { header: listHeader[]; listItems: object[]; windowTitle: string }) {
 
         const [currentlyOpen, setCurrentlyOpen] = useState<null | number>(null);
 
+        const [resetKey, setResetKey] = useState(0);
 
         useEffect(() => {
                 const f = (e: KeyboardEvent) => e.key === "Escape" && setCurrentlyOpen(null);
@@ -56,12 +57,13 @@ export default function List({ header, listItems, windowTitle }: { header: listH
                                                                 </div>
                                                         ))}
                                         </div>
-                                        <form key={`listItemExpandedForm${index}_${index}`} id={`listItemExpandedForm${index}`}>
+                                        <form key={`listItemExpandedForm${index}_${index}`} id={`listItemExpandedForm${index}`}
+                                                onReset={() => setResetKey(prev => prev + 1)}>
                                                 <div className={`expandedListItemContainer ${currentlyOpen === index ? "listItemExpandedOpen" : "listItemExpandedClosed"}`}>
-                                                        <div key={`expandedListItem${index}`} id={`expandedListItem${index}`} className={`listItemExpanded`}>
+                                                        <div key={`expandedListItem${index}`} id={`expandedListItem${index}`} className="listItemExpanded">
                                                                 <div className="expandedListItemUpperContainer">
                                                                         <h2 className="windowTitle">{windowTitle}</h2>
-                                                                        <button className={"expandedListItemButton expandedListItemButtonClose"} onClick={() => (setCurrentlyOpen(null))}>
+                                                                        <button className={"expandedListItemButton expandedListItemButtonClose"} onClick={() => (setCurrentlyOpen(null))} type="button">
                                                                                 <XIcon
                                                                                         width={32}
                                                                                         height={32}
@@ -69,17 +71,33 @@ export default function List({ header, listItems, windowTitle }: { header: listH
                                                                         </button>
                                                                 </div>
 
-                                                                {Object.entries(listItem).map(([key, value], headerIndex) => (
-                                                                        <div key={`listItemExpandedFieldWrapper${index}_${key}`}>
-                                                                                <EditField
-                                                                                        label={header[headerIndex]?.headerColumnName ?? key}
-                                                                                        value={String(value)}
-                                                                                        form={`listItemExpandedForm${index}`}
-                                                                                        fieldId={`listItemExpandedForm${index}Field${key}`}
-                                                                                />
-                                                                        </div>
+                                                                <div className="expandedListItemMiddleContainer">
+                                                                        {Object.entries(listItem).map(([key, value], headerIndex) => (
+                                                                                <div key={`listItemExpandedFieldWrapper${index}_${key}`}>
+                                                                                        <EditField
+                                                                                                key={`${key}-${resetKey}`}
+                                                                                                label={header[headerIndex]?.headerColumnName ?? key}
+                                                                                                value={String(value)}
+                                                                                                form={`listItemExpandedForm${index}`}
+                                                                                                fieldId={`listItemExpandedForm${index}Field${key}`}
+                                                                                        />
+                                                                                </div>
 
-                                                                ))}
+                                                                        ))}
+                                                                </div>
+
+                                                                <div className="expandedListItemLowerButtonContainer">
+                                                                        <Button
+                                                                                value="Cancelar"
+                                                                                buttonType="reset"
+                                                                                form={`listItemExpandedForm${index}`}
+                                                                        />
+
+                                                                        <Button
+                                                                                value="Confirmar"
+                                                                                buttonType="submit"
+                                                                        />
+                                                                </div>
                                                         </div>
 
                                                 </div>

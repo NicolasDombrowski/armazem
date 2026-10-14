@@ -7,17 +7,11 @@ import List from "@/app/components/list";
 import { listHeader } from "@/app/components/list";
 
 
-
 import users from "./teste";
 
 
-
-
-import { useState } from "react";
-
 export default function ManageUser() {
         let user: number = 0; //puxar do banco dps
-        const [currentChart, setChart] = useState<"left" | "right">("left");
 
         interface User {
                 name: string;

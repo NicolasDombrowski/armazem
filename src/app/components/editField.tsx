@@ -5,46 +5,52 @@ import "./editField.css"
 import XIcon from "@/app/assets/icons/x-lg.svg"
 import PencilIcon from "@/app/assets/icons/pencil-fill.svg"
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 
-interface EditFieldProps {
-        label: string;
-        value: string;
-        form: string;
-        fieldId?: string;
+type props = {
+        label: string,
+        value: string,
+        form: string,
+        fieldId?: string
 }
 
-export default function EditField({
-        label,
-        value,
-        form,
-        fieldId
-}: EditFieldProps) {
+export default function EditField(props: props) {
 
         const [editing, setEditing] = useState(false);
+        const inputRef = useRef<HTMLInputElement>(null);
 
+        function handleEditButtonClick() {
+                if (editing && inputRef.current) {
+                        inputRef.current.value = props.value;
+                }
+
+                setEditing(!editing);
+
+        }
+        
         return (
                 <div className="editField">
-                        <label className="editFieldLabel">{label}</label>
+                        <label className="editFieldLabel">{props.label}</label>
 
                         <div className="editFieldInner">
                                 <div className="editFieldField">
                                         <input
-                                                id={fieldId}
+                                                ref={inputRef}
+                                                id={props.fieldId}
                                                 className={`editFieldInput  ${editing ? 'shown' : 'hidden'}`}
-                                                form={form}
-                                                defaultValue={value}
+                                                form={props.form}
+                                                defaultValue={props.value}
                                         />
 
                                         <span className={`editFieldSpan ${editing ? 'hidden' : 'shown'}`}>
-                                                {value}
+                                                {props.value}
                                         </span>
                                 </div>
 
                                 <button
                                         type="button"
                                         className={`editFieldButton ${editing ? 'editFieldButtonCancel' : 'editFieldButtonEdit'}`}
-                                        onClick={() => setEditing(!editing)}
+                                        onClick={handleEditButtonClick}
                                 >
 
                                         <XIcon
