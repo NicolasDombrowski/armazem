@@ -1,17 +1,15 @@
 import "server-only";
-import { Pool } from "pg";
+import { Sequelize } from "sequelize";
 
-const globalForPg = globalThis as typeof globalThis & {
-    pgPool?: Pool;
-};
+const databaseUrl = process.env.DATABASE_URL;
 
-export const db =
-    globalForPg.pgPool ??
-    new Pool({
-        connectionString: process.env.DATABASE_URL,
-        max: 10,
-    });
-
-if (process.env.NODE_ENV !== "production") {
-    globalForPg.pgPool = db;
+if (!databaseUrl) {
+    throw new Error("DATABASE_URL não está definida no .env.local");
 }
+
+const sequelize = new Sequelize(databaseUrl, {
+    dialect: "postgres",
+    logging: false,
+});
+
+export default sequelize;

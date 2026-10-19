@@ -2,10 +2,9 @@
 import "../style.css";
 
 import Chart from "@/app/components/chart";
-import RegisterItem from "./register";
+import RegisterItem from "./new/page";
 import List from "@/app/components/list";
 
-import tools from "./teste";
 
 import { listHeader } from "@/app/components/list";
 
@@ -24,7 +23,7 @@ export default function RegisterTool() {
         return (
                 <>
                         <title>Ferramentas</title>
-                        <div className="registerTool">
+                        <div className="manageTool">
                                 <h1>Gerenciar Ferramentas</h1>
                                 <Chart
                                         props={{
@@ -36,7 +35,7 @@ export default function RegisterTool() {
                                 />
                                 <div className="secondaryChart">
                                         <div className="mainContainer">
-                                                <List header={header} listItems={tools} windowTitle="Editar Ferramenta" />
+                                                <List header={header} listItems={[]} windowTitle="Editar Ferramenta" />
                                         </div>
 
                                         <div className="bottomButtonContainer">

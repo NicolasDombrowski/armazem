@@ -11,7 +11,8 @@ type props = {
         label: string,
         value: string,
         form: string,
-        fieldId?: string
+        fieldName: string;
+        fieldId: string
 }
 
 export default function EditField(props: props) {
@@ -37,6 +38,7 @@ export default function EditField(props: props) {
                                         <input
                                                 ref={inputRef}
                                                 id={props.fieldId}
+                                                name={props.fieldName}
                                                 className={`editFieldInput  ${editing ? 'shown' : 'hidden'}`}
                                                 form={props.form}
                                                 defaultValue={props.value}

@@ -1,5 +1,5 @@
 "use client";
-import "../style.css";
+import "../../style.css";
 
 export default function RegisterItem() {
         const itemCategory = ["fixadores", "lubrificantes", "rolamentos"]; //puxar do banco dps

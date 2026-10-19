@@ -1,7 +1,12 @@
 "use client";
-import "../style.css";
+import { Dispatch, SetStateAction } from "react";
+import "../../style.css";
 
-export default function RegisterUser() {
+import Button from "@/app/components/button";
+
+//import { createEmployee } from "@/app/actions/employee";
+
+export default function RegisterUser(props: { registerOpen: boolean, setRegisterOpen: Dispatch<SetStateAction<boolean>> }) {
         const userDepartment = [
                 "almoxarifado",
                 "mecânica",
@@ -15,67 +20,68 @@ export default function RegisterUser() {
                 "produção",
         ]; //puxar do banco depois
 
+
+
         return (
                 <>
-                        <h2>Adicionar usuário</h2>
-                        <form id="leftUserForm">
+                        <div className="upperButtonContainer">
+                                <h2 className="windowTitle">Registrar usuário</h2>
+                                <Button
+                                        buttonType="x"
+                                        onclick={() => props.setRegisterOpen(false)}
+                                        closeOnEsc={true}
+                                />
+                        </div>
+                        <form  id="userForm">
                                 <div className="formContainer">
+
                                         <div className="inputContainer">
-                                                <label htmlFor="userName">
+                                                <label htmlFor="name">
                                                         Nome completo do usuário
                                                 </label>
                                                 <input
+                                                        required
                                                         type="text"
-                                                        name="userName"
-                                                        id="userName"
+                                                        name="name"
+                                                        id="name"
                                                         placeholder="Ex: João Silva"
                                                 />
                                         </div>
 
                                         <div className="inputContainer">
-                                                <label htmlFor="userEmail">
+                                                <label htmlFor="mail">
                                                         E-mail do usuário
                                                 </label>
                                                 <input
+                                                        required
                                                         type="text"
-                                                        name="userEmail"
-                                                        id="userEmail"
+                                                        name="mail"
+                                                        id="mail"
                                                         placeholder="Ex: JoãoSilva@gmail.com"
                                                 />
                                         </div>
 
                                         <div className="inputContainer">
-                                                <label htmlFor="userPhone">
+                                                <label htmlFor="phone">
                                                         Número de telefone do usuário
                                                 </label>
                                                 <input
+                                                        required
                                                         type="text"
-                                                        name="userPhone"
-                                                        id="userPhone"
+                                                        name="phone"
+                                                        id="phone"
                                                         placeholder="Ex: 554299999999"
                                                 />
                                         </div>
 
                                         <div className="inputContainer">
-                                                <label htmlFor="userId">
-                                                        ID do usuário
-                                                </label>
-                                                <input
-                                                        type="number"
-                                                        name="userId"
-                                                        id="userId"
-                                                        placeholder="Preenchimento automático"
-                                                        disabled
-                                                />
-                                        </div>
-
-                                        <div className="inputContainer">
-                                                <label htmlFor="userDepartment">
+                                                <label htmlFor="department">
                                                         Departamento
                                                 </label>
                                                 <select
-                                                        name="userDepartment"
-                                                        id="userDepartment">
+                                                        required
+                                                        name="department"
+                                                        id="department">
                                                         <option
                                                                 defaultChecked
                                                                 value="0">
@@ -105,12 +111,13 @@ export default function RegisterUser() {
                                         </div>
 
                                         <div className="inputContainer">
-                                                <label htmlFor="userAcessProfile">
+                                                <label htmlFor="accessProfile">
                                                         Perfil de acesso
                                                 </label>
                                                 <select
-                                                        name="userAcessProfile"
-                                                        id="userAcessProfile">
+                                                        required
+                                                        name="accessProfile"
+                                                        id="acessProfile">
                                                         <option
                                                                 defaultChecked
                                                                 value="0">
@@ -140,6 +147,19 @@ export default function RegisterUser() {
                                         </div>
                                 </div>
                         </form>
+
+                        <div className="bottomButtonContainer">
+                                <Button                                        value="Cancelar"
+                                        buttonType="reset"
+                                        form={"userForm"}
+                                />
+
+                                <Button
+                                        value="Confirmar"
+                                        buttonType="submit"
+                                        form={"userForm"}
+                                />
+                        </div>
                 </>
         );
 }

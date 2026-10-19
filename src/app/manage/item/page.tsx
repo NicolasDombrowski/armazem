@@ -2,10 +2,9 @@
 import "../style.css";
 
 import Chart from "@/app/components/chart";
-import RegisterItem from "./register";
+import RegisterItem from "./new/page";
 import List from "@/app/components/list";
 
-import items from "./teste";
 
 
 import { listHeader } from "@/app/components/list";
@@ -26,7 +25,7 @@ export default function ManageItem() {
         return (
                 <>
                         <title>Itens</title>
-                        <div className="registerItem">
+                        <div className="manageItem">
                                 <h1>Gerenciar itens</h1>
                                 <Chart
                                         props={{
@@ -39,7 +38,7 @@ export default function ManageItem() {
                                 />
                                 <div className="secondaryChart">
                                         <div className="mainContainer">
-                                                <List header={header} listItems={items} windowTitle="Editar Item" />
+                                                <List header={header} listItems={[]} windowTitle="Editar Item" />
                                         </div>
                                         
                                         <div className="bottomButtonContainer">
@@ -49,6 +48,7 @@ export default function ManageItem() {
                                         </div>
                                 </div>
                         </div>
+                        <RegisterItem/>
                 </>
         );
 }

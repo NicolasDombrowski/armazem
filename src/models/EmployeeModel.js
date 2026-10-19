@@ -1,11 +1,8 @@
 import "server-only";
+import { DataTypes } from "sequelize";
+import sequelize from "@/lib/db";
 
-const { DataTypes } = require('sequelize');
-const sequelize = require('../config/db');
-const { type } = require('node:os');
-const { access } = require('node:fs');
-
-const Employees = sequelize.define('employees', {
+const Employee = sequelize.define('employee', {
 
     id: {
         type: DataTypes.INTEGER,
@@ -18,22 +15,22 @@ const Employees = sequelize.define('employees', {
         allowNull: false
     },
 
+    department: {
+        type: DataTypes.STRING(20),
+        allowNull: false
+    },
+
+    access_profile: {
+        type: DataTypes.STRING(20),
+        allowNull: false
+    },
+
     phone: {
         type: DataTypes.INTEGER
     },
 
     mail: {
         type: DataTypes.STRING(50)
-    },
-
-    department:{
-        type: DataTypes.STRING(20),
-        allowNull: false
-    },
-
-    access_profile:{
-        type: DataTypes.STRING(20),
-        allowNull: false
     },
 
     active: {
@@ -48,4 +45,4 @@ const Employees = sequelize.define('employees', {
         timestamps: false
     });
 
-module.exports = Employees;
+export default Employee

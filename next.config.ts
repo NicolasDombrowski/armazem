@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
             },
         },
     },
+     serverExternalPackages: ["sequelize", "pg", "pg-hstore"],
   /* config options here */
   reactCompiler: true,
 };
