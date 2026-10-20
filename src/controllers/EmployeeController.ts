@@ -1,16 +1,25 @@
 
 import "server-only";
-import Employee from "../models/EmployeeModel.js";
 
-export async function fetchAll() {
+import Employee from "../models/EmployeeModel";
+
+export interface UserData{
+    name: string;
+    phone: number;
+    mail: string;
+    department: string;
+    accessProfile: string;
+}
+
+export async function fetchAllUsers() {
     return Employee.findAll();
 }
 
-export async function fetchById(id) {
+export async function fetchUserById(id:number) {
     return Employee.findByPk(id);
 }
 
-export async function insert(data) {
+export async function insertUser(data:UserData) {
     return Employee.create({
         name: data.name,
         phone: data.phone,
@@ -20,7 +29,8 @@ export async function insert(data) {
     });
 }
 
-export async function update(id, data) {
+export async function updateUser(id:number, data:UserData) {
+
     const employee = await Employee.findByPk(id);
 
     if (!employee) return null;
@@ -36,7 +46,8 @@ export async function update(id, data) {
     return employee;
 }
 
-export async function softDelete(id) {
+export async function softDeleteUser(id:number) {
+
     const employee = await Employee.findByPk(id);
 
     if (!employee) return null;
@@ -46,7 +57,8 @@ export async function softDelete(id) {
     return employee;
 }
 
-export async function drop(id) {
+export async function dropUser(id:number) {
+
     const employee = await Employee.findByPk(id);
 
     if (!employee) return null;

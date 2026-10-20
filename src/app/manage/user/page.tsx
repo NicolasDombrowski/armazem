@@ -9,7 +9,7 @@ import Button from "@/app/components/button";
 import RegisterUser from "./new/page";
 
 import { listHeader } from "@/app/components/expandedListItem";
-import formAction from "@/app/actions/employee";
+import updateEmployeeAction from "@/app/actions/employeeAction";
 
 export default function ManageUser() {
 
@@ -68,7 +68,7 @@ export default function ManageUser() {
                                                         header={header}
                                                         listItems={users}
                                                         windowTitle="Editar Usuário"
-                                                        formAction={formAction}>
+                                                        formAction={updateEmployeeAction}>
                                                 </List>
                                         </div>
 

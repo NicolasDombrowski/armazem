@@ -7,7 +7,7 @@ import PencilIcon from "@/app/assets/icons/pencil-fill.svg"
 
 import { useState, useRef } from "react";
 
-type props = {
+interface props{
         label: string,
         value: string,
         form: string,
