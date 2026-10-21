@@ -12,7 +12,7 @@ export interface UserData{
 }
 
 export async function fetchAllUsers() {
-    return Employee.findAll();
+    return Employee.findAll({ order: [["id", "ASC"]] });
 }
 
 export async function fetchUserById(id:number) {

@@ -2,7 +2,7 @@
 
 import "./list.css"
 
-import { Fragment, ReactNode, useState } from "react";
+import { Fragment, useState } from "react";
 
 import EditField from "./editField";
 import Button from "./button";
@@ -49,52 +49,6 @@ export default function List({ header, listItems, windowTitle, formAction }: { h
                                                                 </div>
                                                         ))}
                                         </div>
-                                        <form action={formAction} key={`listItemExpandedForm${index}_${index}`} id={`listItemExpandedForm${index}`}
-                                                onReset={() => setResetKey(prev => prev + 1)}>
-                                                <div className={`expandedListItemContainer ${currentlyOpen === index ? "listItemExpandedOpen" : "listItemExpandedClosed"}`}>
-                                                        <div key={`expandedListItem${index}`} id={`expandedListItem${index}`} className="listItemExpanded">
-                                                                <div className="expandedListItemUpperContainer">
-                                                                        <h2 className="windowTitle">{windowTitle}</h2>
-                                                                        <Button
-                                                                                onclick={() => (setCurrentlyOpen(null))}
-                                                                                buttonType="x"
-                                                                                closeOnEsc={true}
-                                                                        />
-                                                                </div>
-
-                                                                <div className="expandedListItemMiddleContainer">
-                                                                        {Object.entries(listItem).map(([key, value], headerIndex) => (
-                                                                                <div key={`listItemExpandedFieldWrapper${index}_${key}`}>
-                                                                                        <EditField
-                                                                                                key={`${key}-${resetKey}`}
-                                                                                                label={header[headerIndex]?.headerColumnName ?? key}
-                                                                                                value={String(value)}
-                                                                                                form={`listItemExpandedForm${index}`}
-                                                                                                fieldId={`listItemExpandedForm${index}Field${key}`}
-                                                                                                fieldName={key}
-                                                                                        />
-                                                                                </div>
-
-                                                                        ))}
-                                                                </div>
-
-                                                                <div className="expandedListItemLowerButtonContainer">
-                                                                        <Button
-                                                                                value="Cancelar"
-                                                                                buttonType="reset"
-                                                                                form={`listItemExpandedForm${index}`}
-                                                                        />
-
-                                                                        <Button
-                                                                                value="Confirmar"
-                                                                                buttonType="submit"
-                                                                                form={`listItemExpandedForm${index}`}
-                                                                        />
-                                                                </div>
-                                                        </div>
-
-                                                </div>
-                                        </form>
                                 </Fragment>
                         ))
                         }

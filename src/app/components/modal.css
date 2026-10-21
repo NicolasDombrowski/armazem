@@ -1,0 +1,31 @@
+.modalBlur{
+        display: flex;
+        position: absolute;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        right: 0;
+        background-color: var(--darkBlur);
+        width: 100%;
+        height: 100%;
+}
+
+.modal{
+        display: flex;
+        flex-direction: column;
+        width: 40rem;
+        background-color: var(--secondary);
+        padding: .5rem;
+}
+
+.modalUpperContainer{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        color: var(--themeTertiary);
+}
+
+.modalHidden{
+        display: none;
+}

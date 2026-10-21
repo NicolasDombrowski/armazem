@@ -7,15 +7,17 @@ import PencilIcon from "@/app/assets/icons/pencil-fill.svg"
 
 import { useState, useRef } from "react";
 
-interface props{
+interface Props {
         label: string,
         value: string,
         form: string,
-        fieldName: string;
-        fieldId: string
+        fieldName: string,
+        fieldId: string,
+        fieldType: 'number' | 'text' | 'email' | 'hidden' | 'select';
+        selectOptions?: string[];
 }
 
-export default function EditField(props: props) {
+export default function EditField(props: Props) {
 
         const [editing, setEditing] = useState(false);
         const inputRef = useRef<HTMLInputElement>(null);
@@ -28,26 +30,35 @@ export default function EditField(props: props) {
                 setEditing(!editing);
 
         }
-        
+
         return (
                 <div className="editField">
                         <label className="editFieldLabel">{props.label}</label>
 
                         <div className="editFieldInner">
-                                <div className="editFieldField">
-                                        <input
-                                                ref={inputRef}
-                                                id={props.fieldId}
-                                                name={props.fieldName}
-                                                className={`editFieldInput  ${editing ? 'shown' : 'hidden'}`}
-                                                form={props.form}
-                                                defaultValue={props.value}
-                                        />
 
-                                        <span className={`editFieldSpan ${editing ? 'hidden' : 'shown'}`}>
-                                                {props.value}
-                                        </span>
-                                </div>
+                                {props.fieldType != 'select' ?
+                                        (
+                                                <div className="editFieldField">
+                                                        <input
+                                                                ref={inputRef}
+                                                                id={props.fieldId}
+                                                                name={props.fieldName}
+                                                                className={`editFieldInput  ${editing ? 'shown' : 'hidden'}`}
+                                                                form={props.form}
+                                                                defaultValue={props.value}
+                                                                type={props.fieldType}
+                                                        />
+                                                        <span className={`editFieldSpan ${editing ? 'hidden' : 'shown'}`}>
+                                                                {props.value}
+                                                        </span>
+                                                </div>)
+                                        : (
+                                                <select>
+                                                        
+                                                </select>
+                                        )
+                                }
 
                                 <button
                                         type="button"

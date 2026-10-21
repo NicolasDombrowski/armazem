@@ -5,11 +5,11 @@ import "../style.css";
 import Chart from "@/app/components/chart";
 import List from "@/app/components/list";
 import Button from "@/app/components/button";
+import Modal from "@/app/components/modal";
 
 import RegisterUser from "./new/page";
-
-import { listHeader } from "@/app/components/expandedListItem";
 import updateEmployeeAction from "@/app/actions/employeeAction";
+import { listHeader } from "@/app/components/list";
 
 export default function ManageUser() {
 
@@ -49,6 +49,7 @@ export default function ManageUser() {
                 { headerColumnName: "perfil de acesso", headerColumnSize: 27.5 }
         ];
 
+
         return (
                 <>
                         <title>Usuários</title>
@@ -77,16 +78,19 @@ export default function ManageUser() {
                                                         buttonType="custom"
                                                         color="blue"
                                                         value="Registrar usuário"
-                                                        onclick={()=>{setRegisterOpen(true)}}
+                                                        onclick={() => { setRegisterOpen(true) }}
                                                 />
                                         </div>
 
+
+                                        <Modal
+                                                windowTitle="Registrar usuário"
+                                                modalOpen={registerOpen}
+                                                setModalOpen={setRegisterOpen}>
+                                                <RegisterUser/>
+                                        </Modal>
+
                                 </div>
-                        </div>
-                        <div className={`register registerUser ${registerOpen ? "shown" : "hidden"}`}>
-                                <RegisterUser 
-                                registerOpen={registerOpen}
-                                setRegisterOpen={setRegisterOpen}/>
                         </div>
                 </>
         );

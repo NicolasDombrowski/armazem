@@ -4,9 +4,8 @@ import "../../style.css";
 
 import Button from "@/app/components/button";
 
-//import { createEmployee } from "@/app/actions/employee";
 
-export default function RegisterUser(props: { registerOpen: boolean, setRegisterOpen: Dispatch<SetStateAction<boolean>> }) {
+export default function RegisterUser() {
         const userDepartment = [
                 "almoxarifado",
                 "mecânica",
@@ -24,15 +23,7 @@ export default function RegisterUser(props: { registerOpen: boolean, setRegister
 
         return (
                 <>
-                        <div className="upperButtonContainer">
-                                <h2 className="windowTitle">Registrar usuário</h2>
-                                <Button
-                                        buttonType="x"
-                                        onclick={() => props.setRegisterOpen(false)}
-                                        closeOnEsc={true}
-                                />
-                        </div>
-                        <form  id="userForm">
+                        <form id="userForm" action="api" method="POST">
                                 <div className="formContainer">
 
                                         <div className="inputContainer">
@@ -142,14 +133,15 @@ export default function RegisterUser(props: { registerOpen: boolean, setRegister
                                                                                 }
                                                                         </option>
                                                                 ),
-                                                        )}
+                                                        )}      
                                                 </select>
                                         </div>
                                 </div>
                         </form>
 
                         <div className="bottomButtonContainer">
-                                <Button                                        value="Cancelar"
+                                <Button
+                                        value="Cancelar"
                                         buttonType="reset"
                                         form={"userForm"}
                                 />

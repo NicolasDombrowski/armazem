@@ -1,8 +1,8 @@
 "use server";
 
-import { updateUser } from "@/controllers/EmployeeController";
-import { isNumberObject } from "util/types";
-import { UserData } from "@/controllers/EmployeeController";
+import { updateUser, UserData } from "@/controllers/EmployeeController";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
 
 export default async function updateEmployeeAction(formData: FormData) {
@@ -12,10 +12,13 @@ export default async function updateEmployeeAction(formData: FormData) {
                 mail: String(formData.get('mail')),
                 phone: Number(formData.get('phone')),
                 department: String(formData.get('department')),
-                accessProfile: String(formData.get('accessProfile'))
+                accessProfile: String(formData.get('access_profile'))
         };
         if (!id) {
-                throw new Error('');
+                console.error('ID specified incorrectly')
+                return;
         }
         await updateUser(id, userData);
+        revalidatePath('/manage/user');
+        redirect("/manage/user");
         }

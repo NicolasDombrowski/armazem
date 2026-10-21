@@ -9,6 +9,8 @@
 
         --enlightened: hsla(0, 0%, 90%, 0.05);
 
+        --darkBlur: rgba(102, 102, 102, 0.308);
+
         --darkPrimary: hsl(0, 0%, 5%);
         --darkSecondary: hsl(0, 0%, 15%);
         --darkTertiary: hsl(0, 0%, 25%);
