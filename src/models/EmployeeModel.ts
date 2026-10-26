@@ -26,7 +26,7 @@ const Employee = sequelize.define('employee', {
     },
 
     phone: {
-        type: DataTypes.INTEGER
+        type: DataTypes.BIGINT
     },
 
     mail: {

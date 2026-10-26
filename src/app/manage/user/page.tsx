@@ -8,7 +8,7 @@ import Button from "@/app/components/button";
 import Modal from "@/app/components/modal";
 
 import RegisterUser from "./new/page";
-import updateEmployeeAction from "@/app/actions/employeeAction";
+import { updateEmployeeAction } from "@/app/actions/employeeAction";
 import { listHeader } from "@/app/components/list";
 
 export default function ManageUser() {

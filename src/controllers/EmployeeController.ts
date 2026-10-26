@@ -19,7 +19,7 @@ export async function fetchUserById(id:number) {
     return Employee.findByPk(id);
 }
 
-export async function insertUser(data:UserData) {
+export async function createUser(data:UserData) {
     return Employee.create({
         name: data.name,
         phone: data.phone,

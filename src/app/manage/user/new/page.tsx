@@ -1,5 +1,5 @@
 "use client";
-import { Dispatch, SetStateAction } from "react";
+import { createEmployeeAction } from "@/app/actions/employeeAction";
 import "../../style.css";
 
 import Button from "@/app/components/button";
@@ -23,7 +23,7 @@ export default function RegisterUser() {
 
         return (
                 <>
-                        <form id="userForm" action="api" method="POST">
+                        <form id="userForm" action={createEmployeeAction}>
                                 <div className="formContainer">
 
                                         <div className="inputContainer">
